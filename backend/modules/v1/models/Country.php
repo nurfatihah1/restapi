@@ -1,12 +1,13 @@
 <?php
 
-namespace app\modules\v1\models;
+namespace backend\modules\v1\models;
 
 use Yii;
 
 /**
  * This is the model class for table "country".
  *
+ * @property int $id
  * @property string $code
  * @property string $name
  * @property int $population
@@ -21,18 +22,16 @@ class Country extends \yii\db\ActiveRecord
         return 'country';
     }
 
-    public static function primaryKey()
-    {
-        return ['code'];
-    }
-
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['code', 'name', 'population'], 'required'],
+            [['code', 'name'], 'required'],
+            [['population'], 'integer'],
+            [['code'], 'string', 'max' => 2],
+            [['name'], 'string', 'max' => 52],
         ];
     }
 
@@ -42,6 +41,7 @@ class Country extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'id' => 'ID',
             'code' => 'Code',
             'name' => 'Name',
             'population' => 'Population',

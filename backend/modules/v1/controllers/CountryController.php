@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\v1\controllers;
+namespace backend\modules\v1\controllers;
 
 use Yii;
-use app\modules\v1\models\Country;
-use app\modules\v1\models\CountrySearch;
+use backend\modules\v1\models\Country;
+use backend\modules\v1\models\CountrySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -18,7 +18,7 @@ class CountryController extends Controller
      * @inheritdoc
      */
 
-    public $modelClass = 'app\modules\v1\models\Country';
+    public $modelClass = 'backend\modules\v1\models\Country';
     
     public function behaviors()
     {
@@ -55,6 +55,7 @@ class CountryController extends Controller
      */
     public function actionView($id)
     {
+        // echo 1; exit();
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);

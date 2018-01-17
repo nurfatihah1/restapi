@@ -7,14 +7,14 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'app-backend-modules',
+    'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
-    'controllerNamespace' => 'backend\modules\v1\controllers',
+    'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [
             'v1' => [
-                'basePath' => '@app/backend/modules/v1',
-                'class' => 'restapi\backend\modules\v1\Module'
+                // 'basePath' => '@app/backend/modules/v1',
+                'class' => 'backend\modules\v1\Module'
                 ]
             ],
     'components' => [
@@ -43,20 +43,24 @@ return [
             'errorAction' => 'site/error',
         ],
         
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'enableStrictParsing' => true,
-            'showScriptName' => false,
-            'rules' => [
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => 'v1/country',
-                    'tokens' => [
-                        '{id}' => '<id:\\w+>'
-                    ]
-                ]
-            ],
-        ],
+        // 'urlManager' => [
+        //     'enablePrettyUrl' => true,
+        //     'enableStrictParsing' => true,
+        //     'showScriptName' => false,
+
+        //     'rules' => [
+        //         '<controller:\w+>/<id:\d+>' => '<controller>/view',
+        //         '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+        //         '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+        //         // [
+        //         //     'class' => 'yii\rest\UrlRule',
+        //         //     'controller' => 'v1/country',
+        //         //     'tokens' => [
+        //         //         '{id}' => '<id:\\w+>'
+        //         //     ]
+        //         // ]
+        //     ],
+        // ],
         
     ],
     'params' => $params,
